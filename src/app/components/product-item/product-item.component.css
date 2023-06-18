@@ -19,3 +19,12 @@
   width: 108px; 
   margin-bottom: 8px;
 }
+
+.product-item-header {
+  font-size: 18.72px;
+  font-weight: bold;
+}
+
+.product-price {
+  margin-top: 15px;
+}
