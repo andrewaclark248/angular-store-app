@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from './../../models/product'
 import { ProductService } from './../../services/product.service'
 import { Subject, takeUntil } from 'rxjs';
@@ -10,7 +10,17 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class ProductItemComponent implements OnInit {
 
-    constructor(private productService: ProductService) { }
+    @Input() product: Product;
+
+    constructor(private productService: ProductService) { 
+        this.product = {
+            id: 0,
+            name: "",
+            price: 0,
+            url: "",
+            description: ""
+        }
+    }
 
 
     ngOnInit(): void {
