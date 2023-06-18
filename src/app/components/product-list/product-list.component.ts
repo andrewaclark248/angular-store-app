@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './../../models/product'
 import { ProductService } from './../../services/product.service'
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'product-list',
@@ -18,7 +19,10 @@ export class ProductListComponent implements OnInit {
 
     ngOnInit(): void {
         
-        this.products = this.productService.getProducts();
+        this.productService.getProducts().subscribe((res) => {
+            this.products = res;
+
+        });
 
      }
 }
