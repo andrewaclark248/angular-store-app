@@ -6,7 +6,7 @@
     <form (ngSubmit)="addProductToCart(product)">
 
         <select name="quantity" id="quantity" class="select-input" [(ngModel)]="selectedItem" (ngModelChange)="selectedChange($event)" >
-            <option value="1">1</option>
+            <option value="1" selected>1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>

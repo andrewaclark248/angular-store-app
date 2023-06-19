@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from './../../models/product'
 import { ProductService } from './../../services/product.service'
+import { CartService } from './../../services/cart.service'
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -11,12 +12,12 @@ import { Subject, takeUntil } from 'rxjs';
 export class ProductItemComponent implements OnInit {
 
     //form input
-    selectedItem = '';
+    selectedItem = '1';
 
     //props
     @Input() product: Product;
     
-    constructor(private productService: ProductService) { 
+    constructor(private productService: ProductService, private cartService: CartService) { 
         this.product = {
             id: 0,
             name: "",
@@ -33,7 +34,19 @@ export class ProductItemComponent implements OnInit {
 
     
     addProductToCart(product: Product): void {
-        console.log("form submitted haahah", product)
+        //console.log("form submitted haahah", product)
+        let newProduct = product;
+        newProduct.quantity = this.selectedItem;
+
+        let cart = this.cartService.getCart()
+
+   
+        cart.push(newProduct)
+        this.cartService.addToCart(cart)
+
+        let cart2 = this.cartService.getCart();
+        console.log("cart2", cart2)
+
     }
 
 
