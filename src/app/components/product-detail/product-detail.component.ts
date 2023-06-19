@@ -31,10 +31,10 @@ export class ProductDetailComponent {
     if (this.products == null || this.products.length == 0) {
       return null;
     }
-    let result = this.products?.filter((p) => {
-      p.id == id
-    })
 
+    let result = this.products?.filter((p) => {
+      return p.id == id
+    })
     return result[0];
   }
 
