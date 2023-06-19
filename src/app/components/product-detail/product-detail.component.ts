@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../services/product.service'
+import { CartService } from './../../services/cart.service'
 import { Product } from './../../models/product'
 
 @Component({
@@ -13,7 +14,10 @@ export class ProductDetailComponent {
   product: Product | null = null;
   products: Product[] | null = null;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) { }
+  //form input
+  selectedItem = '1';
+
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -36,6 +40,20 @@ export class ProductDetailComponent {
       return p.id == id
     })
     return result[0];
+  }
+
+  selectedChange(value: any) {
+    this.selectedItem = value;
+    console.log("selectedItem", this.selectedItem)
+  }
+
+
+  addProductToCart(): void {
+      this.product!.quantity = this.selectedItem;
+
+      let cart = this.cartService.getCart()
+      cart.push(this.product)
+      this.cartService.addToCart(cart)
   }
 
 }

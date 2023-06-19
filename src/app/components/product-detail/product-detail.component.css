@@ -27,3 +27,20 @@ img {
   .product-details-text {
     font-size: 18px;
   }
+  .select-input {
+    width: 108px; 
+    margin-bottom: 8px;
+    margin-top: 10px;
+  
+  }
+
+  .product-btn {
+    margin-top: 10px;
+    background: #0D6DFC;
+    color: white;
+    border: none;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+  
+  }
