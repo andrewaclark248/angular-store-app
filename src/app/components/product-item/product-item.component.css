@@ -13,9 +13,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
 }
 
 .select-input {
   width: 108px; 
   margin-bottom: 8px;
+  margin-top: 10px;
+
 }
+
+.product-item-header {
+  font-size: 18.72px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.product-price {
+  margin-top: 15px;
+}
+
+.product-btn {
+  margin-top: 10px;
+  background: #0D6DFC;
+  color: white;
+  border: none;
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+
+}
+
+
