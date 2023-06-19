@@ -1,16 +1,33 @@
-<p>cart works!</p>
-
 <div class="grid-container">
     <div style=" align-items: start;">
     
     
-        <div *ngFor="let product of products">
+        <div *ngFor="let product of cart">
             <div  style="justify-content: center !important; display: flex; margin-left: 30%;">
                 <div style="max-width: 200px;">
                     <img width="150" height="200" src="{{ product.url }}">
+
                 </div>
                 <div style="width: 100%; height: 100%; margin-left: 80px;">
-                    my text
+                    <div class="product-item-header">{{ product.name }}</div>
+                    <div class="product-price">$ {{ product.price }}</div>
+                    
+                    <form (ngSubmit)="removeProductFromCart(product)">
+
+                        <select name="quantity" id="quantity" class="select-input"  (ngModelChange)="selectedChange($event)" style="width: 100px;">
+                            <option value="1" [selected]="product.quantity == '1'">1</option>
+                            <option value="2" [selected]="product.quantity == '2'">2</option>
+                            <option value="3" [selected]="product.quantity == '3'">3</option>
+                            <option value="4" [selected]="product.quantity == '4'">4</option>
+                            <option value="5" [selected]="product.quantity == '5'">5</option>
+                        </select><br>
+                        <button class="product-btn" type="submit">
+                            Remove From Cart
+                        </button>
+                
+                    </form>
+
+
                 </div>
             </div>
         </div>

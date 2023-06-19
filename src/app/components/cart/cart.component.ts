@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductService } from './../../services/product.service'
 import { CartService } from './../../services/cart.service'
 import { Product } from './../../models/product'
@@ -10,17 +10,36 @@ import { Product } from './../../models/product'
 })
 export class CartComponent {
 
-  constructor(private productService: ProductService, private cartService: CartService) { }
+  //props
+  @Input() product: Product;
 
-  products: Product[] = [];
+  cart: Product[] = [];
+
+
+  constructor(private productService: ProductService, private cartService: CartService) { 
+    this.product = {
+      id: 0,
+      name: "",
+      price: 0,
+      url: "",
+      description: ""
+    }
+  }
+
 
   ngOnInit(): void {
         
-    this.productService.getProducts().subscribe((res) => {
-        this.products = res;
+    this.cart = this.cartService.getCart();
 
-  });
+  }
 
- }
+  removeProductFromCart(product: Product): void {
+
+  }
+
+  selectedChange(value: any) {
+    //this.selectedItem = value;
+    //console.log("selectedItem", this.selectedItem)
+  }
 
 }
