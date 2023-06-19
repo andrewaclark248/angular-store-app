@@ -26,6 +26,7 @@ img {
 
   .product-details-text {
     font-size: 18px;
+    margin-bottom: 10px;
   }
   .select-input {
     width: 108px; 
@@ -44,3 +45,4 @@ img {
     font-size: 15px;
   
   }
+
