@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from "@angular/common";
@@ -9,6 +8,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { CartComponent } from  './components/cart/cart.component';;
 
 
 @NgModule({
@@ -16,7 +16,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     AppComponent,
     ProductListComponent,
     ProductItemComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
