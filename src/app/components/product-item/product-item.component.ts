@@ -10,8 +10,12 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class ProductItemComponent implements OnInit {
 
-    @Input() product: Product;
+    //form input
+    selectedItem = '';
 
+    //props
+    @Input() product: Product;
+    
     constructor(private productService: ProductService) { 
         this.product = {
             id: 0,
@@ -21,6 +25,13 @@ export class ProductItemComponent implements OnInit {
             description: ""
         }
     }
+
+    selectedChange(value: any) {
+        this.selectedItem = value;
+        console.log("selectedItem", this.selectedItem)
+    }
+
+    
 
 
     ngOnInit(): void {

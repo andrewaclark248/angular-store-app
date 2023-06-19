@@ -2,7 +2,7 @@
     <img class="product-image" src="{{ product.url }}">
     <span class="product-item-header">{{ product.name }}</span>
     <span class="product-price">$ {{ product.price }}</span>
-    <select name="quantity" id="quantity" class="select-input">
+    <select name="quantity" id="quantity" class="select-input" [(ngModel)]="selectedItem" (ngModelChange)="selectedChange($event)" >
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
