@@ -34,7 +34,10 @@ export class CartComponent {
   }
 
   removeProductFromCart(product: Product): void {
-
+    let newCart = this.cart.filter((p) => {
+      return p.id != product.id
+    })
+    this.cartService.addToCart(newCart)
   }
 
   selectedChange(value: any) {
