@@ -32,6 +32,9 @@ export class ProductItemComponent implements OnInit {
     }
 
     
+    addProductToCart(product: Product): void {
+        console.log("form submitted haahah", product)
+    }
 
 
     ngOnInit(): void {
