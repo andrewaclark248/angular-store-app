@@ -34,19 +34,12 @@ export class ProductItemComponent implements OnInit {
 
     
     addProductToCart(product: Product): void {
-        //console.log("form submitted haahah", product)
         let newProduct = product;
         newProduct.quantity = this.selectedItem;
 
         let cart = this.cartService.getCart()
-
-   
         cart.push(newProduct)
         this.cartService.addToCart(cart)
-
-        let cart2 = this.cartService.getCart();
-        console.log("cart2", cart2)
-
     }
 
 
