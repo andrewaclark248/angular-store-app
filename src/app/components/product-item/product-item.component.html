@@ -1,5 +1,7 @@
 <div class="product-container">
-    <img class="product-image" src="{{ product.url }}">
+    <a routerLink="product-detail/{{ product.id }}">
+        <img class="product-image" src="{{ product.url }}">
+    </a>
     <span class="product-item-header">{{ product.name }}</span>
     <span class="product-price">$ {{ product.price }}</span>
     
