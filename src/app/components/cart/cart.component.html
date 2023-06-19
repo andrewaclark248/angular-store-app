@@ -1,1 +1,21 @@
 <p>cart works!</p>
+
+<div class="grid-container">
+    <div style=" align-items: start;">
+    
+    
+        <div *ngFor="let product of products">
+            <div  style="justify-content: center !important; display: flex; margin-left: 30%;">
+                <div style="max-width: 200px;">
+                    <img width="150" height="200" src="{{ product.url }}">
+                </div>
+                <div style="width: 100%; height: 100%; margin-left: 80px;">
+                    my text
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div style="align-items: start;">column 2</div>
+</div>
