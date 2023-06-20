@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'checkout-form',
@@ -10,9 +11,11 @@ export class CheckoutFormComponent {
   fullName: string = "";
   address: string = "";
   ccNumber: string = "";
+  form!: FormGroup;
 
 
   constructor() { 
+    
   }
 
   onSubmit() {
