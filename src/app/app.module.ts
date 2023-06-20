@@ -8,7 +8,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { CartComponent } from  './components/cart/cart.component';;
+import { CartComponent } from  './components/cart/cart.component';
+import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';;
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CartComponent } from  './components/cart/cart.component';;
     ProductListComponent,
     ProductItemComponent,
     ProductDetailComponent,
-    CartComponent
+    CartComponent,
+    CheckoutFormComponent
   ],
   imports: [
     BrowserModule,
