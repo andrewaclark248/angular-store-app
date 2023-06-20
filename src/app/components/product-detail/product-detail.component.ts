@@ -44,7 +44,6 @@ export class ProductDetailComponent {
 
   selectedChange(value: any) {
     this.selectedItem = value;
-    console.log("selectedItem", this.selectedItem)
   }
 
 

@@ -10,27 +10,16 @@ import { Product } from './../../models/product'
 })
 export class CartComponent {
 
-  //props
-  @Input() product: Product;
-
   cart: Product[] = [];
 
 
   constructor(private productService: ProductService, private cartService: CartService) { 
-    this.product = {
-      id: 0,
-      name: "",
-      price: 0,
-      url: "",
-      description: ""
-    }
+
   }
 
 
   ngOnInit(): void {
-        
     this.cart = this.cartService.getCart();
-
   }
 
   removeProductFromCart(product: Product): void {
@@ -38,11 +27,14 @@ export class CartComponent {
       return p.id != product.id
     })
     this.cartService.addToCart(newCart)
+    window.location.reload()
+
   }
 
-  selectedChange(value: any) {
-    //this.selectedItem = value;
-    //console.log("selectedItem", this.selectedItem)
+  selectedChange(product: Product, event: any) {
+    const cartIndex = this.cart.findIndex(cart => cart.id === product.id);
+    this.cart[cartIndex].quantity = event.target.value;
+    this.cartService.addToCart(this.cart)
   }
 
 }
