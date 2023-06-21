@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms'
 export class CheckoutFormComponent implements OnInit  {
 
   checkoutForm!: FormGroup;
+  @Output() userInfo = new EventEmitter();
 
 
   constructor(private fb: FormBuilder) { 
@@ -24,8 +25,7 @@ export class CheckoutFormComponent implements OnInit  {
   }
 
   onSubmit() {
-
-    console.log("form method hit")
+    this.userInfo.emit(this.checkoutForm.value);
   }
 
 
