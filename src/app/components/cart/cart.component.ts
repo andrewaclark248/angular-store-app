@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class CartComponent {
 
   cart: Product[] = [];
-
+  totalPrice: number = 0;
 
   constructor(private productService: ProductService, private cartService: CartService, private route: Router) { 
 
@@ -21,7 +21,17 @@ export class CartComponent {
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
+    this.calculatePrice();
   }
+
+  calculatePrice() {
+    let sum: number = 0
+    this.cart.forEach((p) => {
+      sum = sum + (Number(p.quantity)*p.price)
+    })
+    this.totalPrice = Math.round(100*sum)/100;  ;
+  }
+
 
   removeProductFromCart(product: Product): void {
     let newCart = this.cart.filter((p) => {
