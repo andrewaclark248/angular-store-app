@@ -17,7 +17,6 @@
 }
 
 .select-input {
-  width: 108px; 
   margin-bottom: 8px;
   margin-top: 10px;
 
@@ -33,15 +32,6 @@
   margin-top: 15px;
 }
 
-.product-btn {
-  margin-top: 10px;
-  background: #0D6DFC;
-  color: white;
-  border: none;
-  width: 120px;
-  height: 40px;
-  font-size: 15px;
-
+img {
+  border-radius: 10px;
 }
-
-

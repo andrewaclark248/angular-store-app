@@ -1,0 +1,45 @@
+<div class="checkoutform-container">
+    <form class="form-group" (ngSubmit)="onSubmit()" [formGroup]="checkoutForm"  >
+        <h1> Checkout </h1>
+        <label>Full Name:</label>
+        <input class="form-control" formControlName="fullName">
+
+        <div *ngIf="checkoutForm.controls['fullName'].invalid && checkoutForm.controls['fullName'].touched" class="alert alert-danger">
+            <div *ngIf="checkoutForm.controls['fullName'].errors?.['required']">
+                Name is required.
+            </div>
+            <div *ngIf="checkoutForm.controls['fullName'].errors?.['minlength']">
+                Minimum length of 5 characters for full name field.
+            </div>
+        </div>
+        <br />
+
+        <label>Address</label>
+        <input class="form-control" formControlName="address">
+
+        <div *ngIf="checkoutForm.controls['address'].invalid && checkoutForm.controls['address'].touched" class="alert alert-danger">
+            <div *ngIf="checkoutForm.controls['address'].errors?.['required']">
+                Address is required.
+            </div>
+            <div *ngIf="checkoutForm.controls['address'].errors?.['minlength']">
+                Minimum length of 5 characters for address field.
+            </div>
+        </div>
+        <br>
+
+        <label>CC Number</label>
+        <input class="form-control" formControlName="ccNumber">
+        <div *ngIf="checkoutForm.controls['ccNumber'].invalid && checkoutForm.controls['ccNumber'].touched" class="alert alert-danger">
+            <div *ngIf="checkoutForm.controls['ccNumber'].errors?.['required']">
+                Credit Card is required.
+            </div>
+            <div *ngIf="checkoutForm.controls['ccNumber'].errors?.['minlength']">
+                Minimum length of 16 characters for cc number field.
+            </div>
+        </div>
+        <br>
+        <br>
+        <input type='submit' value="Submit" class="btn btn-primary" [disabled]="checkoutForm.invalid" />
+
+    </form>
+</div>

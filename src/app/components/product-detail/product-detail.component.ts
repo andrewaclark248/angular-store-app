@@ -44,7 +44,6 @@ export class ProductDetailComponent {
 
   selectedChange(value: any) {
     this.selectedItem = value;
-    console.log("selectedItem", this.selectedItem)
   }
 
 
@@ -52,7 +51,7 @@ export class ProductDetailComponent {
       this.product!.quantity = this.selectedItem;
 
       let cart = this.cartService.getCart()
-      cart.push(this.product)
+      cart.push(this.product as Product)
       this.cartService.addToCart(cart)
   }
 
