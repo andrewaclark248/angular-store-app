@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartComponent } from  './components/cart/cart.component';
-import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';;
+import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
+import { HeaderComponent } from './components/header/header.component';;
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CheckoutFormComponent } from './components/checkout-form/checkout-form.
     ProductItemComponent,
     ProductDetailComponent,
     CartComponent,
-    CheckoutFormComponent
+    CheckoutFormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
