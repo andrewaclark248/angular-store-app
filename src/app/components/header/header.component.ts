@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CartService } from './../../services/cart.service'
+import { Product } from './../../models/product'
 
 @Component({
   selector: 'header',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
 
 }
