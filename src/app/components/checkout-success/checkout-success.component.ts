@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-checkout-success',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class CheckoutSuccessComponent {
 
+  fullName: string | null = ''
+  totalPrice: string | null = '';
+
+  constructor(private route: ActivatedRoute) { }
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.fullName = params.get('name');
+      this.totalPrice = params.get('price');
+    })
+  }
 }

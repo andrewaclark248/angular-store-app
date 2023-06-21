@@ -52,9 +52,8 @@ export class CartComponent {
     console.log("event received in cart component")
     this.cartService.clearCart();
     console.log("value", value)
-    let successRoute = `checkout-success/${value.fullName}/200`
+    let successRoute = `checkout-success/${value.fullName}/${this.totalPrice}`
     this.route.navigate([successRoute]);
   }
-
 
 }
