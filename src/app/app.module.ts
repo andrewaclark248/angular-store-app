@@ -10,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartComponent } from  './components/cart/cart.component';
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
-import { HeaderComponent } from './components/header/header.component';;
+import { HeaderComponent } from './components/header/header.component';
+import { CheckoutSuccessComponent } from './components/checkout-success/checkout-success.component';;
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HeaderComponent } from './components/header/header.component';;
     ProductDetailComponent,
     CartComponent,
     CheckoutFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    CheckoutSuccessComponent
   ],
   imports: [
     BrowserModule,

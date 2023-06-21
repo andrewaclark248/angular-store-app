@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ProductService } from './../../services/product.service'
 import { CartService } from './../../services/cart.service'
 import { Product } from './../../models/product'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ export class CartComponent {
   cart: Product[] = [];
 
 
-  constructor(private productService: ProductService, private cartService: CartService) { 
+  constructor(private productService: ProductService, private cartService: CartService, private route: Router) { 
 
   }
 
@@ -40,7 +41,9 @@ export class CartComponent {
   onSubmit(value: any) {
     console.log("event received in cart component")
     this.cartService.clearCart();
-    //this.route.navigate([`success/${value.firstName}/${this.totalPrice}`]);
+    console.log("value", value)
+    let successRoute = `checkout-success/${value.fullName}/200`
+    this.route.navigate([successRoute]);
   }
 
 
