@@ -24,7 +24,8 @@ export class CheckoutFormComponent implements OnInit  {
   }
 
   onSubmit() {
-    console.log("form submitted brother")
+
+    console.log("form method hit")
   }
 
 
