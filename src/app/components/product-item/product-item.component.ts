@@ -40,6 +40,9 @@ export class ProductItemComponent implements OnInit {
         let cart = this.cartService.getCart()
         cart.push(newProduct)
         this.cartService.addToCart(cart)
+
+        const message = `${product.name} has been added to your cart.`;
+        alert(message);
     }
 
 

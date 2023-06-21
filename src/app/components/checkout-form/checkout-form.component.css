@@ -61,13 +61,6 @@ img {
   margin-top: 15px;
 }
 
-.product-btn {
-  margin-top: 10px;
-  background: #0D6DFC;
-  color: white;
-  border: none;
-  width: 120px;
-  height: 40px;
-  font-size: 15px;
-
+.checkoutform-container {
+    margin-right: 30%; 
 }
