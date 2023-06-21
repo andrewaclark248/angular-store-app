@@ -23,6 +23,10 @@ export class CartService {
 
   }
 
+  clearCart() {
+    this.storage.setItem('cart', '');
+  }
+
 
 
 }

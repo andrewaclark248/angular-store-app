@@ -39,7 +39,7 @@ export class CartComponent {
 
   onSubmit(value: any) {
     console.log("event received in cart component")
-    //this.cartService.clearCart();
+    this.cartService.clearCart();
     //this.route.navigate([`success/${value.firstName}/${this.totalPrice}`]);
   }
 
