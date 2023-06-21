@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ProductService } from './../../services/product.service'
 import { CartService } from './../../services/cart.service'
 import { Product } from './../../models/product'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,16 +12,26 @@ import { Product } from './../../models/product'
 export class CartComponent {
 
   cart: Product[] = [];
+  totalPrice: number = 0;
 
-
-  constructor(private productService: ProductService, private cartService: CartService) { 
+  constructor(private productService: ProductService, private cartService: CartService, private route: Router) { 
 
   }
 
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
+    this.calculatePrice();
   }
+
+  calculatePrice() {
+    let sum: number = 0
+    this.cart.forEach((p) => {
+      sum = sum + (Number(p.quantity)*p.price)
+    })
+    this.totalPrice = Math.round(100*sum)/100;  ;
+  }
+
 
   removeProductFromCart(product: Product): void {
     let newCart = this.cart.filter((p) => {
@@ -40,8 +51,9 @@ export class CartComponent {
   onSubmit(value: any) {
     console.log("event received in cart component")
     this.cartService.clearCart();
-    //this.route.navigate([`success/${value.firstName}/${this.totalPrice}`]);
+    console.log("value", value)
+    let successRoute = `checkout-success/${value.fullName}/${this.totalPrice}`
+    this.route.navigate([successRoute]);
   }
-
 
 }
