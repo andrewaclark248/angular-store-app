@@ -6,7 +6,7 @@ import { CommonModule } from "@angular/common";
 import { ProductListComponent } from './components/product-list/product-list.component'
 import { ProductItemComponent } from './components/product-item/product-item.component'
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartComponent } from  './components/cart/cart.component';
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';;
@@ -25,7 +25,8 @@ import { CheckoutFormComponent } from './components/checkout-form/checkout-form.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

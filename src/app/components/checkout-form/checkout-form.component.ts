@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -6,21 +6,28 @@ import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms'
   templateUrl: './checkout-form.component.html',
   styleUrls: ['./checkout-form.component.css']
 })
-export class CheckoutFormComponent {
+export class CheckoutFormComponent implements OnInit  {
 
-  fullName: string = "";
-  address: string = "";
-  ccNumber: string = "";
-  form!: FormGroup;
+  checkoutForm!: FormGroup;
 
 
-  constructor() { 
-    
+  constructor(private fb: FormBuilder) { 
+    this.checkoutForm = this.fb.group({
+      fullName: ['', [Validators.required]], // Validators.minLength(4)
+      address: ['', [Validators.required]],
+      ccNumber: ['', [Validators.required]],
+    });
+  }
+
+  ngOnInit(): void {
+
   }
 
   onSubmit() {
 
   }
+
+
 
 
 }

@@ -1,16 +1,16 @@
-<form class="form-margin" #form="ngForm"  (ngSubmit)="onSubmit()">
+<form class="form-group" (ngSubmit)="onSubmit()" [formGroup]="checkoutForm" >
     <h1> Checkout </h1>
     <label>Full Name: </label><br />
-    <input type='text' name='firstName'placeholder="Enter First Name" [(ngModel)]="fullName" required>
+    <input class="form-control" formControlName="fullName">
+
     <br />
-    <label>Address: </label><br />
-    <input type='text' name='address' placeholder="Enter Address" [(ngModel)]="address" required>
-    <br />
-    <label>Credit Card Number: </label><br />
-    <input type='text' name='creditCard' required  placeholder="(16-digit number)" [(ngModel)]="ccNumber">
-    <br />
-    <input type='submit' value="Submit" class="btn btn-primary" [disabled]="form.invalid" />
-  </form>
-  <div class="alert alert-danger mt-2">
-      some text
+
+    <input type='submit' value="Submit" class="btn btn-primary"  />
+</form>
+
+
+<div *ngIf="checkoutForm.controls['fullName'].invalid && checkoutForm.controls['fullName'].touched" class="alert alert-danger">
+    <div *ngIf="checkoutForm.controls['fullName'].errors?.['required']">
+        Name is required.
   </div>
+</div>
